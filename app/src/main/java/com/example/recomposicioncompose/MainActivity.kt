@@ -1,6 +1,7 @@
 package com.example.recomposicioncompose
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
@@ -48,26 +49,33 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun Prueba1( modifier: Modifier = Modifier) {
-    var valorModificar = 1
+    var valorModificar = 0
     Text(
         text = "P1 El valor es: ${valorModificar.toString()}",
         modifier = modifier.fillMaxWidth()
     )
     Button(
-        onClick = { valorModificar++;}
+        onClick = { valorModificar++;
+            println(valorModificar)}
     ) {
         Text(text = "Boton incrementa en uno el valor")
     }
 }
 @Composable
 fun Prueba2( modifier: Modifier = Modifier) {
+ //  val valorModificar2: MutableState<Int> =   mutableStateOf(0)
+    var otroValor=0;
     val valorModificar: MutableState<Int> = remember { mutableStateOf(0) }
+    //otroValor = valorModificar.value*2
+    println("ValorModificar "+ valorModificar)
+    println("otro valor "+otroValor)
     Text(
-        text = "P2 El valor es: ${valorModificar.value.toString()}",
+        text = "P2 El valor es: ${valorModificar.value.toString()} y otroValor $otroValor",
         modifier = modifier.fillMaxWidth()
     )
     Button(
-        onClick = { valorModificar.value++;}
+        onClick = { valorModificar.value++;
+        otroValor++;}
     ) {
         Text(text = "Boton incrementa en uno el valor")
     }
@@ -126,6 +134,8 @@ private fun modificarValorP5(valorModificar: Int) {
 }
 @Composable
 fun Prueba6( modifier: Modifier = Modifier) {
+
+
     //val valorModificar by remember { mutableStateOf(0) }
     var valorModificar by remember { mutableStateOf(0) }
     Text(
@@ -138,6 +148,8 @@ fun Prueba6( modifier: Modifier = Modifier) {
         Text(text = "Boton incrementa en uno el valor")
     }
 }
+
+
 
 
 private fun modificarValorP6(valorModificar: Int): Int {
