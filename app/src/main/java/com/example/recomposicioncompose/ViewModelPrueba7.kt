@@ -18,11 +18,11 @@ class ViewModelPrueba7 : ViewModel() {
 
 fun aumentarElValorEnUno()
 {
-var nuevoValor= _uiState.value.valor
-   var nuevoValorEntero = nuevoValor.toInt()
+    var nuevoValor= _uiState.value.valor
+    var nuevoValorEntero = nuevoValor.toInt()
     nuevoValorEntero++
     nuevoValor=nuevoValorEntero.toString()
-        ActualizarUiState(nuevoValor);
+    ActualizarUiState(nuevoValor);
 
 
 }
